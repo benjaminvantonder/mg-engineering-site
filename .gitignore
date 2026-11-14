@@ -39,3 +39,4 @@ test-results/
 
 # Lighthouse CLI temp
 .lighthouse/
+#test
