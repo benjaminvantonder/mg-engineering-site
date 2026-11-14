@@ -66,3 +66,4 @@ All copy, service names, compliance standards, testimonials, stats and addresses
 - `<meta name="robots" content="noindex">` is intentional on every build; remove it before public launch.
 - No contact form or backend: all contact actions are `mailto:` links (`hello@matlag.co.za`, `ryno@matlag.co.za`).
 - Deployment must configure the SPA history fallback (e.g. Netlify/Vercel rewrite) or deep links will 404.
+- GitHub Pages: `base` is set to `/mg-engineering-site/` in `vite.config.ts` (matches the repo name); adjust if the repository name changes. The deploy workflow lives at `.github/workflows/deploy.yml`.

@@ -11,7 +11,7 @@ function ServicesCta({ className = "" }: { className?: string }) {
       className={`relative shrink-0 overflow-hidden rounded-[1.4rem] border border-brand/25 bg-surface ${className}`}
     >
       <img
-        src="/assets/solar.webp"
+        src={`${import.meta.env.BASE_URL}assets/solar.webp`}
         alt=""
         width={512}
         height={512}

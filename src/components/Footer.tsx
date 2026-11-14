@@ -14,7 +14,7 @@ export function Footer() {
             <Link to="/" className="flex w-fit items-center gap-4">
               <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
                 <img
-                  src="/assets/mg-logo.png"
+                  src={`${import.meta.env.BASE_URL}assets/mg-logo.png`}
                   alt="MG Engineering logo"
                   width={56}
                   height={56}
@@ -90,7 +90,7 @@ export function Footer() {
           >
             <span className="font-display text-[8px] uppercase tracking-[0.24em]">Proudly partnered with</span>
             <img
-              src="/assets/arclis.svg"
+              src={`${import.meta.env.BASE_URL}assets/arclis.svg`}
               alt="Arclis"
               width={83}
               height={17}

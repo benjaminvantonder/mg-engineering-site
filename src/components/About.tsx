@@ -88,8 +88,8 @@ export function About() {
                   className="relative aspect-[4/3] overflow-hidden rounded-[1.6rem] border border-white/10 bg-surface sm:aspect-[4/5]"
                 >
                   <motion.img
-                    src={about.image.src}
-                    srcSet="/assets/team-560.webp 560w, /assets/team-760.webp 760w, /assets/team.webp 1080w"
+                    src={`${import.meta.env.BASE_URL}assets/team.webp`}
+                    srcSet={`${import.meta.env.BASE_URL}assets/team-560.webp 560w, ${import.meta.env.BASE_URL}assets/team-760.webp 760w, ${import.meta.env.BASE_URL}assets/team.webp 1080w`}
                     sizes="(min-width: 1024px) 38vw, 92vw"
                     alt={about.image.alt}
                     width={about.image.width}

@@ -20,8 +20,8 @@ export function Hero({ ready }: HeroProps) {
     <section id="top" className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden pb-24 pt-28 lg:pb-28 lg:pt-32">
       <div aria-hidden="true" className="absolute inset-0 z-0 overflow-hidden bg-ink">
         <img
-          src="/assets/hero-backdrop-1000.webp"
-          srcSet="/assets/hero-backdrop-700.webp 700w, /assets/hero-backdrop-1000.webp 1000w, /assets/hero-backdrop.webp 1400w"
+          src={`${import.meta.env.BASE_URL}assets/hero-backdrop-1000.webp`}
+          srcSet={`${import.meta.env.BASE_URL}assets/hero-backdrop-700.webp 700w, ${import.meta.env.BASE_URL}assets/hero-backdrop-1000.webp 1000w, ${import.meta.env.BASE_URL}assets/hero-backdrop.webp 1400w`}
           sizes="100vw"
           alt=""
           width={1400}
