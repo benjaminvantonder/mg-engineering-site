@@ -16,7 +16,6 @@ export function IntroCurtain({ onDone }: IntroCurtainProps) {
       return;
     }
 
-    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     const timer = window.setTimeout(() => {
@@ -26,9 +25,17 @@ export function IntroCurtain({ onDone }: IntroCurtainProps) {
 
     return () => {
       window.clearTimeout(timer);
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = "";
     };
   }, [onDone, reduced]);
+
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = "hidden";
+      return;
+    }
+    document.body.style.overflow = "";
+  }, [visible]);
 
   return (
     <AnimatePresence>
