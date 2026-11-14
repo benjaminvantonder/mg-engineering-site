@@ -5,6 +5,10 @@ import { ArrowUpRight, Mail, MapPin } from "./Icons";
 import { PrimaryButton } from "./Buttons";
 import { Reveal } from "./Reveal";
 
+const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${site.address.street}, ${site.address.locality}, ${site.address.postalCode}, ${site.address.country}`,
+)}`;
+
 function MagneticEmail() {
   const reduced = useReducedMotion() ?? false;
   const ref = useRef<HTMLAnchorElement>(null);
@@ -145,6 +149,18 @@ export function Contact() {
                 <span className="font-display text-[8px] uppercase tracking-[0.24em] text-muted">
                   Centurion · South Africa
                 </span>
+              </div>
+
+              <div className="mt-6">
+                <PrimaryButton
+                  href={directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                  ariaLabel="Get directions to MG Engineering in Centurion via Google Maps"
+                >
+                  Get directions
+                </PrimaryButton>
               </div>
             </div>
           </Reveal>

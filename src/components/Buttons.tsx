@@ -10,12 +10,14 @@ interface ButtonProps {
   onClick?: () => void;
   className?: string;
   ariaLabel?: string;
+  target?: string;
+  rel?: string;
 }
 
 const spring = { type: "spring" as const, stiffness: 380, damping: 24 };
 const MotionLink = motion(Link);
 
-export function PrimaryButton({ children, href, to, onClick, className = "", ariaLabel }: ButtonProps) {
+export function PrimaryButton({ children, href, to, onClick, className = "", ariaLabel, target, rel }: ButtonProps) {
   const classes = `group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-brand px-7 py-4 font-display text-[11px] font-bold uppercase tracking-[0.16em] text-ink ${className}`;
 
   const content = (
@@ -56,6 +58,8 @@ export function PrimaryButton({ children, href, to, onClick, className = "", ari
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.98 }}
         transition={spring}
+        target={target}
+        rel={rel}
       >
         {content}
       </motion.a>
@@ -77,7 +81,7 @@ export function PrimaryButton({ children, href, to, onClick, className = "", ari
   );
 }
 
-export function GhostButton({ children, href, to, onClick, className = "", ariaLabel }: ButtonProps) {
+export function GhostButton({ children, href, to, onClick, className = "", ariaLabel, target, rel }: ButtonProps) {
   const classes = `group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-white/25 px-7 py-4 font-display text-[11px] font-bold uppercase tracking-[0.16em] text-paper transition-colors duration-300 hover:border-brand/60 hover:text-ink ${className}`;
 
   const content = (
@@ -118,6 +122,8 @@ export function GhostButton({ children, href, to, onClick, className = "", ariaL
         whileHover={{ scale: 1.015 }}
         whileTap={{ scale: 0.98 }}
         transition={spring}
+        target={target}
+        rel={rel}
       >
         {content}
       </motion.a>

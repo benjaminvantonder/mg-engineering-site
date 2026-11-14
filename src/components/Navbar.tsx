@@ -9,7 +9,6 @@ export function Navbar() {
   const reduced = useReducedMotion() ?? false;
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const lastScroll = useRef(0);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -18,18 +17,13 @@ export function Navbar() {
     const onScroll = () => {
       const y = window.scrollY;
       setScrolled(y > 80);
-      const delta = y - lastScroll.current;
-
-      if (Math.abs(delta) > 3) {
-        setHidden(y > 180 && delta > 0 && !open);
-        lastScroll.current = y;
-      }
+      lastScroll.current = y;
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [open]);
+  }, []);
 
   useEffect(() => {
     setOpen(false);
@@ -83,7 +77,7 @@ export function Navbar() {
     <>
       <motion.header
         initial={{ y: -110 }}
-        animate={{ y: hidden ? "-115%" : "0%" }}
+        animate={{ y: "0%" }}
         transition={{ duration: reduced ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed inset-x-0 top-0 z-[80] transition-colors duration-500 ${
           scrolled
