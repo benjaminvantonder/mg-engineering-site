@@ -7,9 +7,11 @@ import "./index.css";
 const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Root element not found");
 
+const baseName = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter basename="/mg-engineering-site/">
+    <BrowserRouter basename={baseName}>
       <App />
     </BrowserRouter>
   </StrictMode>,

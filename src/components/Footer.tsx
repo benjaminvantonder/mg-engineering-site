@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { footer, legalLinks, navLinks, site } from "../content";
 import { scrollToTop } from "../lib/scroll";
+import { BrandMark } from "./BrandMark";
 import { ArrowUpRight } from "./Icons";
 
 export function Footer() {
@@ -12,17 +13,10 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.3fr_0.5fr_0.7fr] lg:gap-10">
           <div>
             <Link to="/" className="flex w-fit items-center gap-4">
-              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/mg-logo.png`}
-                  alt="MG Engineering logo"
-                  width={56}
-                  height={56}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-contain"
-                />
-              </span>
+              <BrandMark
+                alt="MG Engineering logo"
+                className="h-14 w-14 rounded-2xl p-1.5 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+              />
               <span>
                 <span className="block font-display text-lg font-bold uppercase tracking-[0.06em] text-paper">
                   MG <span className="text-brand">Engineering</span>

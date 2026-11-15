@@ -30,7 +30,7 @@ export const legalDocs: Record<string, LegalDoc> = {
     updated,
     intro: [
       "MG Engineering (“we,” “our,” “us”) values your privacy and is committed to protecting your personal information.",
-      "This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website www.matlag.co.za.",
+      "This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website.",
     ],
     sections: [
       {
@@ -162,7 +162,7 @@ export const legalDocs: Record<string, LegalDoc> = {
     title: "Terms of Use",
     updated,
     intro: [
-      "Welcome to MG Engineering’s website (www.matlag.co.za).",
+      "Welcome to the MG Engineering website.",
       "By accessing or using our website, you agree to comply with these Terms of Use. If you do not agree, please do not use this site.",
     ],
     sections: [

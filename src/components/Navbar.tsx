@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { navLinks, site } from "../content";
-import { Bolt } from "./Icons";
+import { BrandMark } from "./BrandMark";
 import { PrimaryButton } from "./Buttons";
 
 export function Navbar() {
@@ -91,9 +91,11 @@ export function Navbar() {
             onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
             className="group flex shrink-0 items-center gap-3"
           >
-            <span className="relative grid h-9 w-9 place-items-center rounded-full border border-brand/40 bg-brand/10 transition-colors duration-300 group-hover:border-brand/80 group-hover:bg-brand/20">
-              <Bolt className="h-4 w-4 text-brand" />
-            </span>
+            <BrandMark
+              alt=""
+              priority
+              className="h-10 w-10 rounded-xl p-1.5 shadow-[0_6px_20px_rgba(0,0,0,0.35)] ring-1 ring-white/15 transition-transform duration-300 group-hover:scale-105"
+            />
             <span className="flex flex-col">
               <span className="font-display text-[14px] font-bold uppercase leading-none tracking-[0.09em] text-paper sm:text-[15px]">
                 MG <span className="text-brand">Engineering</span>

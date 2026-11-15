@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { BrandMark } from "./BrandMark";
 
 interface IntroCurtainProps {
   onDone: () => void;
@@ -57,22 +58,25 @@ export function IntroCurtain({ onDone }: IntroCurtainProps) {
 
           <div className="relative z-10 flex flex-col items-center px-6 text-center">
             <div className="overflow-hidden">
-              <motion.p
-                className="font-display text-5xl font-bold tracking-[-0.06em] text-paper sm:text-6xl"
+              <motion.div
                 initial={{ y: "120%" }}
                 animate={{ y: "0%" }}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
               >
-                MG<span className="text-brand">.</span>
-              </motion.p>
+                <BrandMark
+                  alt=""
+                  priority
+                  className="h-24 w-24 rounded-[1.6rem] p-3 shadow-[0_18px_60px_rgba(0,0,0,0.45)] sm:h-28 sm:w-28"
+                />
+              </motion.div>
             </div>
             <motion.p
-              className="mt-3 font-display text-[10px] uppercase tracking-[0.55em] text-muted sm:text-xs"
-              initial={{ opacity: 0, letterSpacing: "0.2em" }}
-              animate={{ opacity: 1, letterSpacing: "0.55em" }}
-              transition={{ duration: 0.7, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-6 font-display text-2xl font-bold uppercase tracking-[-0.02em] text-paper sm:text-3xl"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             >
-              Engineering
+              MG <span className="text-brand">Engineering</span>
             </motion.p>
 
             <div className="mt-8 h-px w-40 overflow-hidden bg-white/10">

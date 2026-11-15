@@ -1,4 +1,4 @@
-import { Bolt } from "./Icons";
+import { BrandMark } from "./BrandMark";
 
 const items = [
   "Electrical installations",
@@ -20,7 +20,11 @@ function TickerGroup({ duplicate = false }: { duplicate?: boolean }) {
           <span className="px-6 font-display text-[10px] font-medium uppercase tracking-[0.28em] text-muted sm:px-8 sm:text-[11px]">
             {item}
           </span>
-          <Bolt className="h-2.5 w-2.5 shrink-0 text-brand/60" />
+          <BrandMark
+            alt=""
+            priority
+            className="h-4 w-4 shrink-0 rounded-[4px] p-[1.5px] opacity-80"
+          />
         </span>
       ))}
     </div>

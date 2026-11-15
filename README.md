@@ -36,6 +36,7 @@ src/
   components/
     Navbar, Hero, Ticker, Craftsmanship, About, Services, Process,
     Compliance, Testimonials, Contact, Footer
+    BrandMark          White logo tile used by intro, navbar, hero, ticker and footer
     ServiceCard        3D tilt (max 8°) + cursor-follow glow
     ElectricGridCanvas Canvas hero grid with power pulses
     IntroCurtain       ~1.25s intro
@@ -65,5 +66,6 @@ All copy, service names, compliance standards, testimonials, stats and addresses
 
 - `<meta name="robots" content="noindex">` is intentional on every build; remove it before public launch.
 - No contact form or backend: all contact actions are `mailto:` links (`hello@matlag.co.za`, `ryno@matlag.co.za`).
+- Fully self-contained build: every image, logo, font and OG image is served from `public/`; no runtime requests to `matlag.co.za`. Open Graph and structured-data URLs are derived from the current origin at runtime, so the site can move to a new domain without code changes.
 - Deployment must configure the SPA history fallback (e.g. Netlify/Vercel rewrite) or deep links will 404.
-- GitHub Pages: `base` is set to `/mg-engineering-site/` in `vite.config.ts` (matches the repo name); adjust if the repository name changes. The deploy workflow lives at `.github/workflows/deploy.yml`.
+- GitHub Pages: `base` is set to `/mg-engineering-site/` in `vite.config.ts` (matches the repo name); the router derives its basename from the same value. Adjust `base` if the repository name changes. The deploy workflow lives at `.github/workflows/deploy.yml`.

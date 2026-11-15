@@ -4,7 +4,7 @@ import { scrollToTarget } from "../lib/scroll";
 import { ElectricGridCanvas } from "./ElectricGridCanvas";
 import { SplitText } from "./SplitText";
 import { PrimaryButton, GhostButton } from "./Buttons";
-import { Bolt } from "./Icons";
+import { BrandMark } from "./BrandMark";
 
 interface HeroProps {
   ready: boolean;
@@ -134,12 +134,11 @@ export function Hero({ ready }: HeroProps) {
                   <circle cx="100" cy="100" r="76" stroke="rgba(34,211,238,0.22)" strokeWidth="1" strokeDasharray="1 15" />
                   <path d="M100 2v12M100 186v12M2 100h12M186 100h12" stroke="rgba(232,236,242,0.22)" strokeWidth="1" />
                 </svg>
-                <div className="relative grid h-24 w-24 place-items-center rounded-full border border-brand/25 bg-brand/[0.06]">
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-2 rounded-full border border-arc/15"
+                <div className="relative grid h-24 w-24 place-items-center rounded-[1.7rem] border border-brand/25 bg-brand/[0.06] p-1.5">
+                  <BrandMark
+                    alt=""
+                    className="h-full w-full rounded-[1.35rem] p-2 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
                   />
-                  <Bolt className="h-8 w-8 text-brand" />
                 </div>
               </div>
 
