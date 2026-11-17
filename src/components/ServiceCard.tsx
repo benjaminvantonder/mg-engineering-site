@@ -7,9 +7,11 @@ import { ServiceIcon } from "./ServiceIcon";
 interface ServiceCardProps {
   service: Service;
   className?: string;
+  /** Load the artwork eagerly (used for the first cards above the fold). */
+  priority?: boolean;
 }
 
-export function ServiceCard({ service, className = "" }: ServiceCardProps) {
+export function ServiceCard({ service, className = "", priority = false }: ServiceCardProps) {
   const reduced = useReducedMotion() ?? false;
   const cardRef = useRef<HTMLLIElement>(null);
   const frame = useRef(0);
@@ -49,6 +51,22 @@ export function ServiceCard({ service, className = "" }: ServiceCardProps) {
       onPointerLeave={onPointerLeave}
       className={`service-card group relative shrink-0 overflow-hidden rounded-[1.4rem] border border-white/[0.08] bg-surface/80 ${className}`}
     >
+      {service.image && (
+        <img
+          src={`${import.meta.env.BASE_URL}${service.image}`}
+          alt=""
+          width={760}
+          height={760}
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          decoding="async"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-45 brightness-110 saturate-110 contrast-[1.05] transition-transform duration-700 ease-spring group-hover:scale-[1.04]"
+        />
+      )}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/84 to-ink/38"
+      />
       <div aria-hidden="true" className="service-card-glow pointer-events-none absolute inset-0" />
       <div aria-hidden="true" className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 

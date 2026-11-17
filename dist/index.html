@@ -39,15 +39,36 @@
 
     <link rel="preload" as="font" type="font/woff2" href="/mg-engineering-site/fonts/space-grotesk-500_700-latin.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="/mg-engineering-site/fonts/inter-400_600-latin.woff2" crossorigin />
-    <link
-      rel="preload"
-      as="image"
-      href="/mg-engineering-site/assets/hero-backdrop-1000.webp"
-      imagesrcset="/mg-engineering-site/assets/hero-backdrop-700.webp 700w, /mg-engineering-site/assets/hero-backdrop-1000.webp 1000w, /mg-engineering-site/assets/hero-backdrop.webp 1400w"
-      imagesizes="100vw"
-      type="image/webp"
-      fetchpriority="high"
-    />
+    <script>
+      // Route-aware LCP preload: only fetch the hero art on the home page and
+      // the first service photo on the services page, instead of both everywhere.
+      (function () {
+        var base = "/mg-engineering-site/";
+        var path = window.location.pathname.replace(/\/+$/, "");
+        var image = "";
+        var srcset = "";
+        if (path === base.replace(/\/+$/, "")) {
+          image = base + "assets/hero-backdrop-1000.webp";
+          srcset =
+            base + "assets/hero-backdrop-700.webp 700w, " +
+            base + "assets/hero-backdrop-1000.webp 1000w, " +
+            base + "assets/hero-backdrop.webp 1400w";
+        } else if (path.slice(-9) === "/services") {
+          image = base + "assets/services/electrical.webp";
+        }
+        if (!image) return;
+        var link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = image;
+        link.setAttribute("fetchpriority", "high");
+        if (srcset) {
+          link.setAttribute("imagesrcset", srcset);
+          link.setAttribute("imagesizes", "100vw");
+        }
+        document.head.appendChild(link);
+      })();
+    </script>
 
     <script type="application/ld+json">
       {
@@ -76,8 +97,8 @@
         background: #07090d;
       }
     </style>
-    <script type="module" crossorigin src="/mg-engineering-site/assets/index-D_vFDkDW.js"></script>
-    <link rel="stylesheet" crossorigin href="/mg-engineering-site/assets/index-qSpS2S8M.css">
+    <script type="module" crossorigin src="/mg-engineering-site/assets/index-BnN0xyma.js"></script>
+    <link rel="stylesheet" crossorigin href="/mg-engineering-site/assets/index-BgepcycM.css">
   </head>
   <body>
     <div id="root"></div>

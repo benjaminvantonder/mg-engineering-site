@@ -17,11 +17,11 @@ function ServicesCta({ className = "" }: { className?: string }) {
         height={512}
         loading="lazy"
         decoding="async"
-        className="absolute inset-0 h-full w-full object-cover opacity-30"
+        className="absolute inset-0 h-full w-full object-cover opacity-40 brightness-115 saturate-105"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/30"
+        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/25"
       />
       <div className="relative flex h-full min-h-[260px] flex-col justify-between gap-8 p-6">
         <div className="flex items-center justify-between">
@@ -156,8 +156,13 @@ export function Services() {
 
         {reduced ? (
           <div className="shell mt-10 grid gap-4 sm:mt-12 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
-              <ServiceCard key={service.number} service={service} className="min-h-[250px] w-full" />
+            {services.map((service, index) => (
+              <ServiceCard
+                key={service.number}
+                service={service}
+                priority={index < 2}
+                className="min-h-[250px] w-full"
+              />
             ))}
             <ServicesCta className="w-full" />
           </div>
@@ -167,10 +172,11 @@ export function Services() {
             className="mt-9 flex w-full flex-col gap-4 pl-5 pr-5 sm:mt-12 sm:pl-8 sm:pr-8 lg:mt-10 lg:w-max lg:flex-row lg:gap-5 lg:pl-12 lg:pr-12 xl:pl-16 xl:pr-16"
           >
             <ul className="flex shrink-0 flex-col gap-4 lg:flex-row lg:gap-5">
-              {services.map((service) => (
+              {services.map((service, index) => (
                 <ServiceCard
                   key={service.number}
                   service={service}
+                  priority={index < 2}
                   className="min-h-[250px] w-full lg:min-h-0 lg:w-[clamp(300px,26vw,410px)]"
                 />
               ))}

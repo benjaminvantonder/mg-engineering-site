@@ -37,7 +37,7 @@ src/
     Navbar, Hero, Ticker, Craftsmanship, About, Services, Process,
     Compliance, Testimonials, Contact, Footer
     BrandMark          White logo tile used by intro, navbar, hero, ticker and footer
-    ServiceCard        3D tilt (max 8°) + cursor-follow glow
+    ServiceCard        3D tilt (max 8°) + cursor glow + service background photo
     ElectricGridCanvas Canvas hero grid with power pulses
     IntroCurtain       ~1.25s intro
     CustomCursor, FilmGrain, ScrollProgress
@@ -46,6 +46,7 @@ src/
   lib/                  Lenis scroll helpers, GSAP setup
   hooks/                Lenis smooth scroll, count-up
 public/assets/         Optimised WebP images, logo, OG image, Arclis mark
+public/assets/services/  Nine square service-card photos (Pexels, free licence)
 public/fonts/          Self-hosted Inter + Space Grotesk (variable, latin + latin-ext)
 screenshots/           QA captures at 360 / 768 / 1024 / 1440 / 1920 + section/mobile shots
 lighthouse/            Mobile Lighthouse JSON reports (home, privacy, about, services, contact)
@@ -56,9 +57,24 @@ content-scrape.json    Playwright scrape of the live site (source of truth for c
 
 All copy, service names, compliance standards, testimonials, stats and addresses come from `content-scrape.json`. Legal documents come from the `subpages` entries. Missing on the live site: phone number, social profiles, project case-study photos — none were invented.
 
+Service-card artwork uses free-licence Pexels photos, cropped square (760×760), converted to WebP and stored locally:
+
+| Service | Pexels photo |
+| --- | --- |
+| Electrical installations | 257736 |
+| Certificates of Compliance | 39174676 |
+| MV / HT infrastructure | 39151930 |
+| Fault finding | 34054464 |
+| Solar | 11644973 |
+| HVAC | 38228166 |
+| Air conditioning | 5463581 |
+| Generators | 18816918 |
+| Off-site monitoring | 32845700 |
+
 ## Accessibility & performance
 
-- Mobile Lighthouse (simulated Moto G / slow 4G): **Performance 91–94, Accessibility 100, Best Practices 100**, LCP ~3.0 s, CLS 0.
+- Mobile Lighthouse (simulated Moto G / slow 4G): **Performance 91–95, Accessibility 100, Best Practices 100**, LCP 2.7–3.4 s, CLS ≤0.002.
+- Route-aware LCP preload (hero art on `/`, first service photo on `/services`) keeps image weight off other pages.
 - Keyboard accessible menu with focus trap, skip link, visible focus states, WCAG AA contrast, single `<h1>` per route, sequential heading order.
 - `prefers-reduced-motion`: intro skipped, services render as a static grid, no parallax/tilt/cursor effects.
 

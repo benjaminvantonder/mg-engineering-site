@@ -13,6 +13,7 @@ export interface Service {
   number: string;
   title: string;
   icon: ServiceIconName;
+  image: string;
 }
 
 export interface NavLink {
@@ -155,15 +156,56 @@ export const services: Service[] = [
     number: "01",
     title: "Residential, commercial and industrial electrical installations and maintenance",
     icon: "bolt",
+    image: "assets/services/electrical.webp",
   },
-  { number: "02", title: "Certificates of Compliance", icon: "shield" },
-  { number: "03", title: "MV and HT infrastructure assembly and delivery", icon: "tower" },
-  { number: "04", title: "Electrical and mechanical fault finding", icon: "wrench" },
-  { number: "05", title: "Solar installations and maintenance", icon: "sun" },
-  { number: "06", title: "HVAC supply and installation", icon: "snowflake" },
-  { number: "07", title: "Residential and commercial air conditioning", icon: "aircon" },
-  { number: "08", title: "Generator supply, installation and maintenance", icon: "generator" },
-  { number: "09", title: "Turnkey solutions including off-site monitoring", icon: "monitor" },
+  {
+    number: "02",
+    title: "Certificates of Compliance",
+    icon: "shield",
+    image: "assets/services/compliance.webp",
+  },
+  {
+    number: "03",
+    title: "MV and HT infrastructure assembly and delivery",
+    icon: "tower",
+    image: "assets/services/mv-ht.webp",
+  },
+  {
+    number: "04",
+    title: "Electrical and mechanical fault finding",
+    icon: "wrench",
+    image: "assets/services/fault-finding.webp",
+  },
+  {
+    number: "05",
+    title: "Solar installations and maintenance",
+    icon: "sun",
+    image: "assets/services/solar.webp",
+  },
+  {
+    number: "06",
+    title: "HVAC supply and installation",
+    icon: "snowflake",
+    image: "assets/services/hvac.webp",
+  },
+  {
+    number: "07",
+    title: "Residential and commercial air conditioning",
+    icon: "aircon",
+    image: "assets/services/air-conditioning.webp",
+  },
+  {
+    number: "08",
+    title: "Generator supply, installation and maintenance",
+    icon: "generator",
+    image: "assets/services/generators.webp",
+  },
+  {
+    number: "09",
+    title: "Turnkey solutions including off-site monitoring",
+    icon: "monitor",
+    image: "assets/services/monitoring.webp",
+  },
 ];
 
 export const process = {

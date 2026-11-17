@@ -39,15 +39,36 @@
 
     <link rel="preload" as="font" type="font/woff2" href="%BASE_URL%fonts/space-grotesk-500_700-latin.woff2" crossorigin />
     <link rel="preload" as="font" type="font/woff2" href="%BASE_URL%fonts/inter-400_600-latin.woff2" crossorigin />
-    <link
-      rel="preload"
-      as="image"
-      href="%BASE_URL%assets/hero-backdrop-1000.webp"
-      imagesrcset="%BASE_URL%assets/hero-backdrop-700.webp 700w, %BASE_URL%assets/hero-backdrop-1000.webp 1000w, %BASE_URL%assets/hero-backdrop.webp 1400w"
-      imagesizes="100vw"
-      type="image/webp"
-      fetchpriority="high"
-    />
+    <script>
+      // Route-aware LCP preload: only fetch the hero art on the home page and
+      // the first service photo on the services page, instead of both everywhere.
+      (function () {
+        var base = "%BASE_URL%";
+        var path = window.location.pathname.replace(/\/+$/, "");
+        var image = "";
+        var srcset = "";
+        if (path === base.replace(/\/+$/, "")) {
+          image = base + "assets/hero-backdrop-1000.webp";
+          srcset =
+            base + "assets/hero-backdrop-700.webp 700w, " +
+            base + "assets/hero-backdrop-1000.webp 1000w, " +
+            base + "assets/hero-backdrop.webp 1400w";
+        } else if (path.slice(-9) === "/services") {
+          image = base + "assets/services/electrical.webp";
+        }
+        if (!image) return;
+        var link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = image;
+        link.setAttribute("fetchpriority", "high");
+        if (srcset) {
+          link.setAttribute("imagesrcset", srcset);
+          link.setAttribute("imagesizes", "100vw");
+        }
+        document.head.appendChild(link);
+      })();
+    </script>
 
     <script type="application/ld+json">
       {
